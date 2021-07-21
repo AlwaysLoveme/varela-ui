@@ -27,7 +27,8 @@
     "clean": "rimraf ./lib",
     "lint": "eslint --fix --ext .ts,.tsx,.js,.vue",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run clean && cpy ./package.json ./lib && npm run lint && rollup --config build/rollup.config.prod.js --watch"
+    "build:dev": "npm run clean && cpy ./package.json ./lib && npm run lint && rollup --config build/rollup.config.js --watch",
+    "build:prod": "npm run clean && rollup --config build/rollup.config.js"
   },
   "keywords": [
     "vuejs",

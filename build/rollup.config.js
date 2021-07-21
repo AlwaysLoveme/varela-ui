@@ -12,14 +12,14 @@ export default {
     {
       format: "iife", // IIFE
       file: resolvePath("../lib/index.browser.js"),
-      name: "ui",
+      name: "varela",
       globals,
       exports: "named",
     },
     {
       format: "umd", // umd格式
       file: resolvePath("../lib/index.umd.js"), // 输出文件
-      name: "new-ui", // 指定name
+      name: "varela", // 指定name
       exports: "named",
       globals,
       assetFileNames: "assets/[name].[hash][extname]",
