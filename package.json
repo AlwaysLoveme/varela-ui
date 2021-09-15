@@ -1,11 +1,15 @@
 {
-  "name": "varela",
+  "name": "varela-ui",
   "version": "1.0.0",
   "description": "a ui library of mobile for vuejs3.0",
   "main": "index.umd.js",
   "module": "index.esm.js",
   "typings": "index.d.ts",
   "source": "./example/main.js",
+  "files": [
+    "lib",
+    "example"
+  ],
   "targets": {
     "index": {
       "includeNodeModules": {

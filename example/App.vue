@@ -4,7 +4,7 @@
 
     <div class="content padding-10">
       <Refresher @refresh="onDone" @pulling="pulling" />
-       <count-down :end-time="8000"></count-down>
+       <count-down :time-value="1631615430000" type="timing"></count-down>
       <div class="margin-20">
         <Loading></Loading>
       </div>
