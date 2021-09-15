@@ -96,11 +96,11 @@ export default defineComponent({
       }, 1000);
     };
     const countDown = (time: number) => {
-      let day: any, hours: any, minutes: any, seconds: any;
-      day = parseInt((time / 60 / 60 / 24) as unknown as string, 10);
-      hours = parseInt(((time / 60 / 60) % 24) as unknown as string, 10);
-      minutes = parseInt(((time / 60) % 60) as unknown as string, 10);
-      seconds = parseInt((time % 60) as unknown as string, 10);
+      let day, hours, minutes, seconds;
+      day = Math.floor(time / 60 / 60 / 24);
+      hours = Math.floor((time / 60 / 60) % 24);
+      minutes = Math.floor((time / 60) % 60);
+      seconds = Math.floor(time % 60);
 
       // 格式化
       if (day < 10) day = "0" + day;
