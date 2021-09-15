@@ -94,7 +94,8 @@ export default defineComponent({
     const loadingColor = computed(() => {
       let color = "";
       switch (type.value) {
-        case "raised" || "fill":
+        case "raised":
+        case "fill":
           color = "#fff";
           break;
         case "outline":
