@@ -9,8 +9,8 @@
 
 <script lang="ts">
 import Loading from "../Loading";
+import { onMounted } from "vue";
 import { defineComponent, ref } from "vue";
-import { onMounted, onUnmounted } from "vue";
 
 export default defineComponent({
   components: {
@@ -58,7 +58,6 @@ export default defineComponent({
     let parentNode!: HTMLElement;
     const getParentNode = () => {
       parentNode = infiniteContainer.value?.parentNode as HTMLElement;
-      console.dir(parentNode);
       if (!eleScrolled(parentNode) && !props.triggerMounted)
         disabled.value = true;
       parentNode.addEventListener("scroll", onScroll, { passive: false });
@@ -86,5 +85,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style scoped></style>

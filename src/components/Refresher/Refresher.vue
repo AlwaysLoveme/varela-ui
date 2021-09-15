@@ -17,13 +17,13 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, ref } from "vue";
-import { onMounted, onUnmounted } from "vue";
 import Icon from "../Icon";
-import Animation from "../Transition";
 import Loading from "../Loading";
+import Animation from "../Transition";
+import { onMounted, onUnmounted } from "vue";
+import { computed, defineComponent, ref } from "vue";
 
-type RefresherStatus = "default" | "pulling" | "refreshing" | "success";
+export type RefresherStatus = "default" | "pulling" | "refreshing" | "success";
 
 export default defineComponent({
   components: {

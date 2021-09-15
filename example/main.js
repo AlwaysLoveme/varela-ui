@@ -2,5 +2,5 @@ import {createApp} from "vue";
 import App from "./App";
 import "../lib/css/core.css";
 import Vconsole from "vconsole";
-new Vconsole();
+// new Vconsole();
 createApp(App).mount("#app");

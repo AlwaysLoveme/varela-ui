@@ -32,7 +32,7 @@
       <div class="scroll">
         <div>
           <div class="main">
-            <Sticky style="background: red; height: 30px" :offset="50">
+            <Sticky style="background: red; height: 30px">
               435353535
             </Sticky>
           </div>
@@ -175,7 +175,7 @@ nav.nav {
   position: relative;
   width: 30%;
   height: 30vh;
-  // overflow-y: auto;
+  overflow-y: auto;
   padding: 10px;
   margin: 10px 0;
   background: #eee;

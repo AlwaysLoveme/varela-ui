@@ -9,10 +9,7 @@
       >
         <slot name="header">
           <div class="custom-modal-body-header">
-            <p
-              class="custom-modal-body-header-title"
-              :style="{ textAlign: titleAlign }"
-            >
+            <p class="custom-modal-body-header-title" :style="headerStyle">
               {{ title }}
             </p>
             <Icon
@@ -36,8 +33,9 @@
 import Icon from "../Icon";
 import Backdrop from "../Backdrop";
 import Animation from "../Transition";
-import { defineComponent } from "vue";
 import animates from "@/shared/animates";
+import type { TextAlignProperty } from "csstype";
+import { computed, defineComponent, CSSProperties, PropType } from "vue";
 
 export default defineComponent({
   components: {
@@ -71,7 +69,7 @@ export default defineComponent({
       default: "225px",
     },
     titleAlign: {
-      type: String,
+      type: String as PropType<TextAlignProperty>,
       default: "center",
     },
     animation: {
@@ -89,9 +87,14 @@ export default defineComponent({
       if (props.clickBackDropClose) emit("update:show", false);
     };
 
+    const headerStyle = computed<CSSProperties>(() => ({
+      textAlign: props.titleAlign,
+    }));
+
     return {
       animates,
       closeModal,
+      headerStyle,
     };
   },
 });

@@ -31,8 +31,7 @@ const handlerRequest = async (config: AxiosRequestConfig) => {
     const configData = await request.beforeRequest(config);
     if (configData) config = configData;
   }
-  // eslint-disable-next-line no-prototype-builtins
-  if (!config.hasOwnProperty("cancelToken")) {
+  if (!Object.prototype.hasOwnProperty.call(config, "cancelToken")) {
     // 排除不需要cancel的请求
     const source = axios.CancelToken.source();
     cancelTokenSources.set(source.token, source.cancel); // 加入cancel队列
