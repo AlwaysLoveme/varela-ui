@@ -27,7 +27,7 @@ import Animation from "../Transition";
 import Icon from "../Icon";
 
 export default defineComponent({
-  name: "Toast",
+  name: "VToast",
   components: {
     Icon,
     Backdrop,

@@ -38,7 +38,7 @@ import { MDCRipple } from "@material/ripple";
 import { computed, defineComponent, onMounted, ref, toRefs } from "vue";
 
 export default defineComponent({
-  name: "zxButton",
+  name: "VButton",
   components: {
     Loading,
   },
@@ -108,6 +108,7 @@ export default defineComponent({
     onMounted(() => {
       new MDCRipple(zxButton.value);
     });
+
     return {
       btnClass,
       zxButton,

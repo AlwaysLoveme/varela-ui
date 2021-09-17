@@ -26,6 +26,7 @@ import { computed, defineComponent, ref } from "vue";
 export type RefresherStatus = "default" | "pulling" | "refreshing" | "success";
 
 export default defineComponent({
+  name: "VRefresher",
   components: {
     Icon,
     Loading,

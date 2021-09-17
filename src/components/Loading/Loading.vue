@@ -100,7 +100,7 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "Loading",
+  name: "VLoading",
   props: {
     spinType: {
       type: String,

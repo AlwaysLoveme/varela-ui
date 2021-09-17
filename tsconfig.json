@@ -1,18 +1,18 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
+    "target": "es5",
+    "module": "es2015",
     "strict": true,
     "jsx": "preserve",
     "importHelpers": true,
     "moduleResolution": "node",
-    "skipLibCheck": true,
+    "skipLibCheck": false,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": false,
     "baseUrl": ".",
     "declaration": true /* Generates corresponding '.d.ts' file. */,
-    "declarationMap": false,
+    "declarationMap": true,
     "paths": {
       "@/*": ["src/*"]
     },

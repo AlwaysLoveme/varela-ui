@@ -35,7 +35,7 @@ interface CountDownState {
 type countDownType = "countdown" | "timing";
 
 export default defineComponent({
-  name: "CountDown",
+  name: "VCountDown",
   props: {
     //类型 countdown: 倒计时 timing: 计时
     type: {

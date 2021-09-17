@@ -10,16 +10,9 @@ export default {
       assetFileNames: "assets/[name].[hash][extname]",
     },
     {
-      format: "iife", // IIFE
-      file: resolvePath("../lib/index.browser.js"),
-      name: "varela",
-      globals,
-      exports: "named",
-    },
-    {
       format: "umd", // umd格式
-      file: resolvePath("../lib/index.umd.js"), // 输出文件
-      name: "varela", // 指定name
+      file: resolvePath("../lib/index.js"), // 输出文件
+      name: "varela-ui",
       exports: "named",
       globals,
       assetFileNames: "assets/[name].[hash][extname]",

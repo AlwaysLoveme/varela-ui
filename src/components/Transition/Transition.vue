@@ -11,18 +11,19 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import animates from "@/shared/animates";
+import { defineComponent, PropType } from "vue";
+import animates from "../../shared/animates";
 
+type Mode = "out-in" | "in-out";
 export default defineComponent({
-  name: "Animation",
+  name: "VAnimation",
   props: {
     name: {
       type: String,
       default: "",
     },
     mode: {
-      type: String,
+      type: String as PropType<Mode>,
       default: "out-in",
     },
   },

@@ -9,7 +9,7 @@ export enum ToastPosition {
 }
 export interface ToastOptions {
   icon?: string;
-  text: string;
+  text?: string;
   onClose?: (() => void) | null;
   onDestroy?: () => void;
   position?: ToastPosition;

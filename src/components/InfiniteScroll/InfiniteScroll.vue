@@ -13,6 +13,7 @@ import { onMounted } from "vue";
 import { defineComponent, ref } from "vue";
 
 export default defineComponent({
+  name: "VInfiniteScroll",
   components: {
     Loading,
   },

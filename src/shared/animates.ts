@@ -3,7 +3,7 @@
  * @animates key: 入场动画
  * @animates value: 出场动画
  */
-const animates = {
+const animates: Record<string, string> = {
   scaleIn: "scaleOut",
 
   slideInUp: "slideOutDown",

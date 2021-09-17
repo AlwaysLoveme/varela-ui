@@ -33,11 +33,12 @@
 import Icon from "../Icon";
 import Backdrop from "../Backdrop";
 import Animation from "../Transition";
-import animates from "@/shared/animates";
+import animates from "../../shared/animates";
 import type { TextAlignProperty } from "csstype";
 import { computed, defineComponent, CSSProperties, PropType } from "vue";
 
 export default defineComponent({
+  name: "VModal",
   components: {
     Icon,
     Backdrop,

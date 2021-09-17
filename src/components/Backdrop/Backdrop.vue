@@ -16,6 +16,7 @@ import Animation from "../Transition";
 import { computed, CSSProperties, defineComponent, PropType } from "vue";
 
 export default defineComponent({
+  name: "VBackDrop",
   components: {
     Animation,
   },

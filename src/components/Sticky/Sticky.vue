@@ -12,6 +12,7 @@ import { onMounted, onUnmounted, computed } from "vue";
 import { camelize } from "@vue/shared";
 
 export default defineComponent({
+  name: "VSticky",
   props: {
     target: {
       type: String,
