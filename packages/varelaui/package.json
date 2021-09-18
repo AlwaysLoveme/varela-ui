@@ -1,0 +1,110 @@
+{
+  "name": "varela-ui",
+  "version": "1.0.5",
+  "description": "a vue3 ui library",
+  "keywords": [
+    "vue3",
+    "mobile"
+  ],
+  "author": "朱贤 <18270244870@163.com>",
+  "homepage": "https://github.com/AlwaysLoveme/varela-ui.git",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "module": "lib/index.esm.js",
+  "typings": "lib/index.d.ts",
+  "source": "./example/main.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlwaysLoveme/varela-ui.git"
+  },
+  "targets": {
+    "index": {
+      "includeNodeModules": {
+        "vue": true
+      },
+      "context": "browser",
+      "distDir": "./buildDir",
+      "outputFormat": "esmodule",
+      "scopeHoist": false,
+      "optimize": true,
+      "publicUrl": "/"
+    }
+  },
+  "alias": {
+    "@/*": "./src/"
+  },
+  "scripts": {
+    "serve": "rimraf .parcel-cache && rimraf dist && parcel serve ./example/index.html --host=0.0.0.0",
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "clean": "rimraf ./lib",
+    "lint": "eslint --fix --ext .ts,.tsx,.js,.vue",
+    "build": "npm run clean && npm run lint && rollup -c --watch",
+    "build:prod": "npm run clean && rollup -c"
+  },
+  "bugs": {
+    "url": "https://github.com/AlwaysLoveme/varela-ui/issues"
+  },
+  "dependencies": {
+    "@material/button": "^12.0.0",
+    "@material/ripple": "^12.0.0",
+    "animate.css": "^4.1.1",
+    "axios": "^0.21.4",
+    "shelljs": "^0.8.4",
+    "ssr-window": "^4.0.0",
+    "tailwindcss": "^2.2.15",
+    "vue": "^3.2.12"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/plugin-transform-runtime": "^7.15.0",
+    "@babel/preset-env": "^7.15.6",
+    "@babel/preset-typescript": "^7.15.0",
+    "@parcel/babylon-walk": "^2.0.0-rc.0",
+    "@parcel/transformer-babel": "^2.0.0-alpha.3",
+    "@parcel/transformer-image": "^2.0.0-nightly.1981",
+    "@parcel/transformer-sass": "^2.0.0-alpha.3",
+    "@parcel/transformer-vue": "^2.0.0-nightly.1973",
+    "@rollup/plugin-alias": "^3.1.5",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-commonjs": "^20.0.0",
+    "@rollup/plugin-eslint": "^8.0.1",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^13.0.4",
+    "@types/qs": "^6.9.7",
+    "@typescript-eslint/eslint-plugin": "^4.31.1",
+    "@typescript-eslint/parser": "^4.31.1",
+    "@vue/babel-plugin-jsx": "^1.0.7",
+    "@vue/compiler-sfc": "^3.2.12",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "@vue/eslint-config-typescript": "^7.0.0",
+    "autoprefixer": "^10.3.4",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "cpy-cli": "^3.1.1",
+    "cssnano": "^5.0.8",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "3.4.0",
+    "parcel": "^2.0.0-rc.0",
+    "postcss-import": "^14.0.2",
+    "prettier": "^2.4.1",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.56.3",
+    "rollup-plugin-postcss": "^4.0.1",
+    "rollup-plugin-scss": "^3.0.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.30.0",
+    "rollup-plugin-vue": "^6.0.0-beta.10",
+    "sass": "^1.41.1",
+    "typescript": "^4.4.3"
+  }
+}

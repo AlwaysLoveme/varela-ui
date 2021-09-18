@@ -1,0 +1,29 @@
+.position-bottom {
+    bottom: 2%;
+}
+.position-top {
+    top: 2%
+}
+.toast-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px 20px;
+    background-color: var(--toast-bg, rgba(0,0,0,0.8));
+    color: var(--toast-color, #fff);
+    font-size: 15px;
+    border-radius: 6px;
+    .toast-text {
+        color: inherit;
+        font-size: inherit;
+    }
+    &.position-bottom, &.position-top {
+        padding: 15px 20px;
+        width: 80%;
+        border-radius: 10px;
+    }
+
+    &.width-icon {
+        justify-content: center;
+    }
+}

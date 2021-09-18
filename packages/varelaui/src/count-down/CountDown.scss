@@ -1,0 +1,15 @@
+.count-down {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    .time {
+        font-size: inherit;
+        color: inherit;
+    }
+
+    .delimiter {
+        font-size: 17px;
+        margin: 0 5px;
+    }
+}

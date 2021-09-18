@@ -1,0 +1,22 @@
+{
+  "name": "varelaui-doc",
+  "version": "1.0.5",
+  "description": "varelaui-doc",
+  "keywords": [
+    "doc"
+  ],
+  "author": "朱贤 <18270244870@163.com>",
+  "homepage": "",
+  "license": "MIT",
+  "main": "lib/varelaui-doc.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  }
+}
