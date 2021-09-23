@@ -1,18 +1,9 @@
 <template>
-  <button
-    ref="zxButton"
-    v-bind="$attrs"
-    :class="[btnClass]"
-    class="zx-button mdc-button"
-  >
+  <button :type="buttonType" ref="zxButton" v-bind="$attrs" :class="[btnClass]" class="zx-button mdc-button">
     <div class="mdc-button__ripple"></div>
     <div class="flex-center" :style="{ opacity: loading ? 0 : 1 }">
       <slot name="before">
-        <i
-          v-if="icon"
-          class="material-icons"
-          :style="{ fontSize: `${iconSize}px` }"
-        >
+        <i v-if="icon" class="material-icons" :style="{ fontSize: `${iconSize}px` }">
           {{ icon }}
         </i>
       </slot>
@@ -22,20 +13,14 @@
       <slot name="after"></slot>
     </div>
 
-    <Loading
-      size="24"
-      v-if="loading"
-      spinType="spin"
-      :color="loadingColor"
-      class="position-center"
-    ></Loading>
+    <Loading size="24" v-show="loading" spinType="spin" :color="loadingColor" class="position-center"></Loading>
   </button>
 </template>
 
 <script lang="ts">
 import Loading from "../loading";
 import { MDCRipple } from "@material/ripple";
-import { computed, defineComponent, onMounted, ref, toRefs } from "vue";
+import { computed, defineComponent, onMounted, ref, toRefs, PropType, ButtonHTMLAttributes } from "vue";
 
 export default defineComponent({
   name: "VButton",
@@ -46,6 +31,10 @@ export default defineComponent({
     type: {
       type: String,
       default: "",
+    },
+    buttonType: {
+      type: String as PropType<ButtonHTMLAttributes["type"]>,
+      default: "button",
     },
     text: {
       type: String,
