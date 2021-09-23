@@ -71,7 +71,7 @@ export default {
     // 配合 commnjs 解析第三方模块
     nodeResolve({
       mainFields: ["module", "jsnext:main", "main", "browser"],
-      extensions: [".vue", ".ts", ".js"],
+      extensions: [".vue", ".ts", ".tsx", ".js"],
     }),
     typescript({
       abortOnError: false,

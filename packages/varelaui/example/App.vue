@@ -1,5 +1,5 @@
 <template>
-  <div style="padding: 46px 0">
+  <!-- <div style="padding: 46px 0">
     <nav class="nav"></nav>
 
     <div class="content padding-10">
@@ -25,10 +25,10 @@
       <Overlay v-model:show="overlay">
       </Overlay>
 
-      <!-- <ul>
+      <ul>
         <li v-for="(item, index) of data" :key="index" class="items">{{item}}</li>
       </ul>
-      <infinite-scroll @infinite="loadmore" triggerMounted></infinite-scroll> -->
+      <infinite-scroll @infinite="loadmore" triggerMounted></infinite-scroll>
       <div class="scroll">
         <div>
           <div class="main">
@@ -43,13 +43,25 @@
 
     </div>
 
-  </div>
+  </div> -->
+  <Tabs animated v-model:active="active">
+    <Tab v-for="(item, index) of 8" :key="index" :name="index">
+      <template #title>
+        {{index+1+ 'item'}}
+      </template>
+      {{index+1}}
+    </Tab>
+  </Tabs>
+  <Swipe autoplay @swiper="swiper">
+    <SwipeItem>12312</SwipeItem>
+    <SwipeItem>567687</SwipeItem>
+  </Swipe>
 
 </template>
 
 <script>
-import { ref } from "vue";
-import { CountDown, Button, Loading, Modal, request, Backdrop, Toast, Sticky, Refresher, InfiniteScroll } from "../lib";
+import { ref, watch } from "vue";
+import { CountDown, Button, Loading, Tabs, Tab, Modal, request, Backdrop, Toast, Sticky, Refresher, InfiniteScroll, Swipe, SwipeItem } from "../lib";
 
 request.beforeRequest = (config) => {
   console.log(config);
@@ -61,16 +73,21 @@ export default {
   components: {
     Toast,
     Modal,
+    Tabs,
+    Tab,
     Button,
     Loading,
     Sticky,
     Overlay: Backdrop,
     CountDown,
     Refresher,
+    Swipe,
+    SwipeItem,
     InfiniteScroll,
     InfiniteScroll
   },
   setup() {
+    const active = ref(0);
     const loading = ref(false);
     const overlay = ref(false);
     const modal = ref(false);
@@ -79,6 +96,14 @@ export default {
       loading.value = true;
       setTimeout(() => loading.value = false, 2000);
     };
+
+    watch(active, (newVal) => {
+      console.log(newVal);
+    });
+
+    const swiper = (swiper) => {
+      // console.log(swiper);
+    }
 
     const qrcode = ref("https://api.wrdan.com/qr?data=akjshdkashd");
     const http = async () => {
@@ -127,7 +152,9 @@ export default {
       overlay,
       modal,
       qrcode,
+      active,
       onDone,
+      swiper,
       setLoading
     };
   }
@@ -148,20 +175,20 @@ body,
   height: 100%;
   overflow: hidden;
 }
-#app > div {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+// #app > div {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
 
-  .content {
-    position: relative;
-    height: 100%;
-    overflow-y: auto;
-    overscroll-behavior-y: contain;
-  }
-}
+//   .content {
+//     position: relative;
+//     height: 100%;
+//     overflow-y: auto;
+//     overscroll-behavior-y: contain;
+//   }
+// }
 nav.nav {
   position: absolute;
   top: 0;

@@ -1,10 +1,13 @@
 import "./Tab.scss";
-import Tab from "./Tab.vue";
+import Tab from "./Tab";
+import { App, Plugin } from "vue";
 
-Tab.install = (app) => app.component(Tab.name, Tab);
+const TabComponent = Tab as unknown as Plugin;
+
+TabComponent.install = (app: App) => app.component(Tab.name, Tab);
 
 if (typeof window !== "undefined" && window.Vue) {
-  Tab.install(window.Vue);
+  TabComponent.install(window.Vue);
 }
 
-export default Tab;
+export default TabComponent;

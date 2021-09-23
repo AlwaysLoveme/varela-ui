@@ -16,6 +16,10 @@ import Backdrop from "./backdrop";
 import Transition from "./transition";
 import Sticky from "./sticky";
 import Refresher from "./refresher";
+import Tabs from "./tabs";
+import Tab from "./tab";
+import Swipe from "./swipe";
+import SwipeItem from "./swipe-item";
 import InfiniteScroll from "./infinite-scroll";
 import { ToastCreate as Toast } from "./toast";
 
@@ -25,6 +29,10 @@ const components: Plugin[] = [
   Loading,
   Modal,
   Icon,
+  Tabs,
+  Tab,
+  Swipe,
+  SwipeItem,
   Transition,
   Backdrop,
   Sticky,
@@ -45,6 +53,10 @@ export {
   Modal,
   Icon,
   Toast,
+  Tabs,
+  Tab,
+  Swipe,
+  SwipeItem,
   Transition,
   Backdrop,
   Sticky,

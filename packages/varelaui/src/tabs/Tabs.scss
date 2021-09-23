@@ -1,0 +1,65 @@
+@import "../../node_modules/swiper/swiper-bundle.min.css";
+$active: var(--vtab-header-line-background, rgb(48, 139, 243));
+
+.vtabs {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  &-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: var(--vtab-header-height, 40px);
+    overflow-x: auto;
+    transition: all 0.3s;
+    scroll-behavior: smooth; 
+    -webkit-overflow-scrolling: touch;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    &-item {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 80px;
+      height: 100%;
+      font-size: var(--vtab-title-size, 15px);
+      cursor: pointer;
+      background-color: var(--vtab-title-bg, #fff) !important;
+      touch-action: auto;
+      outline: 0;
+      &:active {
+        background-color: none;
+      }
+      &-active {
+        color: $active;
+        background-color: var(--vtab-title-active-bg, #fff) !important;
+      }
+      &-disabled {
+        touch-action: none;
+        pointer-events: none;
+        color: var(--vtab-title-disabled-color, #aaa);
+      }
+    }
+    &-line {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: var(--vtab-header-line-width, 35px);
+      height: var(--vtab-header-line-height, 4px);
+      background: $active;
+      transition: all .3s;
+      border-radius: var(--vtab-header-line-border-radius, 8px);
+    }
+  }
+  &-container {
+    background: var(--vtab-content-bg, #fff) !important;
+  }
+}
+
+.swiper-container.vtabs-container {
+  width: 100%;
+}

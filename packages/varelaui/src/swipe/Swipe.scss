@@ -1,0 +1,6 @@
+@import "../../node_modules/swiper/swiper-bundle.min.css";
+
+.vswipe-container {
+  width: var(--vswipe-container-width, 100%);
+  height: var(--vswipe-container-height, auto);
+}
