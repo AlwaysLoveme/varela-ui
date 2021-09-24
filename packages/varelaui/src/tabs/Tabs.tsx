@@ -1,15 +1,11 @@
-import { defineComponent, nextTick, onMounted, ref } from "vue";
+import { defineComponent, nextTick, onMounted, onUnmounted } from "vue";
+import { watch, provide, computed, reactive, ref } from "vue";
 import {
-  watch,
   VNode,
-  provide,
-  computed,
   isVNode,
-  reactive,
-  CSSProperties,
-  ComponentPublicInstance,
   getCurrentInstance,
   VNodeNormalizedChildren,
+  ComponentPublicInstance,
 } from "vue";
 import { useRefs } from "../hooks/useRefs";
 
@@ -31,6 +27,14 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    position: {
+      type: String,
+      default: "top",
+    },
+    showHeadLine: {
+      type: Boolean,
+      default: true,
+    },
   },
   emits: ["update:active"],
   setup(props, { slots, emit }) {
@@ -39,7 +43,7 @@ export default defineComponent({
 
     const state = reactive({
       currentIndex: props.active,
-      lineStyle: {} as CSSProperties,
+      lineStyle: {},
     });
 
     provide(
@@ -80,8 +84,14 @@ export default defineComponent({
         );
         childrenSlots.value = children;
       });
+      window.addEventListener("resize", updateLineStyle, false);
     });
 
+    onUnmounted(() => {
+      window.removeEventListener("resize", updateLineStyle)
+    })
+
+    /*** header start */
     const [titleRefs, setTitleRef] =
       useRefs<ComponentPublicInstance<{}, any>>();
     const tabsClick = (index: number) => {
@@ -90,7 +100,7 @@ export default defineComponent({
         swiperInstance.value?.slideTo(index);
       }
     };
-    const renderHeader = () => {
+    const renderHeaderTabs = () => {
       return childrenSlots.value.map((item, index) => (
         <div
           class={[
@@ -107,6 +117,21 @@ export default defineComponent({
         </div>
       ));
     };
+    const renderHeadLine = () => {
+      if (props.showHeadLine) {
+        return <div class="vtabs-header-line" style={state.lineStyle}></div>;
+      }
+      return "";
+    };
+    const renderHeader = () => {
+      return (
+        <div class="vtabs-header" ref={tabHeaderContainer}>
+          {renderHeaderTabs()}
+          {renderHeadLine()}
+        </div>
+      );
+    };
+    /*** header end */
 
     const swiperInstance = ref<SwiperInstance>();
     const getSwiperInstance = (swiper: SwiperInstance) =>
@@ -120,6 +145,7 @@ export default defineComponent({
       if (props.animated) {
         return (
           <Swipe
+            allowTouchMove={props.swipeable}
             class="vtabs-container"
             onSwiper={getSwiperInstance}
             onSlideChange={onSlideChange}
@@ -146,7 +172,10 @@ export default defineComponent({
     const handlerHeaderContainerScroll = () => {
       nextTick(() => {
         const currentTitle = titleRefs.value[state.currentIndex];
-        const scrollLeftNum =currentTitle.offsetLeft - tabHeaderContainer.value.offsetWidth / 2 + currentTitle.offsetWidth / 2;
+        const scrollLeftNum =
+          currentTitle.offsetLeft -
+          tabHeaderContainer.value.offsetWidth / 2 +
+          currentTitle.offsetWidth / 2;
         tabHeaderContainer.value.scrollLeft = scrollLeftNum;
       });
     };
@@ -161,14 +190,23 @@ export default defineComponent({
       }
     );
 
-    return () => (
-      <div class="vtabs">
-        <div class="vtabs-header" ref={tabHeaderContainer}>
+    const renderTabsContent = () => {
+      if (props.position === "bottom") {
+        return (
+          <>
+            {renderContent()}
+            {renderHeader()}
+          </>
+        );
+      }
+      return (
+        <>
           {renderHeader()}
-          <div class="vtabs-header-line" style={state.lineStyle}></div>
-        </div>
-        {renderContent()}
-      </div>
-    );
+          {renderContent()}
+        </>
+      );
+    };
+
+    return () => <div class="vtabs">{renderTabsContent()}</div>;
   },
 });

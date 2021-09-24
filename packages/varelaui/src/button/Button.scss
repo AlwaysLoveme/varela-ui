@@ -5,6 +5,8 @@
     align-items: center;
     justify-content: center;
     transition: all 0.3s;
+    box-sizing: border-box;
+    min-width: var(--vbutton-width, 120px);
 }
 
 .mdc-button--raised:focus {

@@ -23,7 +23,7 @@ import SwipeItem from "./swipe-item";
 import InfiniteScroll from "./infinite-scroll";
 import { ToastCreate as Toast } from "./toast";
 
-const components: Plugin[] = [
+const components = [
   CountDown,
   Button,
   Loading,
@@ -40,7 +40,7 @@ const components: Plugin[] = [
   InfiniteScroll,
 ];
 const install = (app: App): App => {
-  components.forEach((component) => app.use(component));
+  components.forEach((component) => app.use(component as Plugin));
   app.config.globalProperties.$toast = Toast;
   return app;
 };

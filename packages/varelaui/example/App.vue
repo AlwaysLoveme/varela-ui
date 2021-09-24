@@ -44,24 +44,46 @@
     </div>
 
   </div> -->
-  <Tabs animated v-model:active="active">
-    <Tab v-for="(item, index) of 8" :key="index" :name="index">
+  <Tabs animated swipeable position="bottom" v-model:active="active">
+    <Tab v-for="(item, index) of 2" :key="index" :name="index">
       <template #title>
-        {{index+1+ 'item'}}
+        {{ index + 1 + "item" }}
       </template>
-      {{index+1}}
+      {{ index + 1 }}
     </Tab>
   </Tabs>
   <Swipe autoplay @swiper="swiper">
     <SwipeItem>12312</SwipeItem>
     <SwipeItem>567687</SwipeItem>
   </Swipe>
-
+  <Loading />
+  <Button
+    type="fill"
+    text="button"
+    icon="home"
+    :loading="loading"
+    @click="setLoading"
+  />
 </template>
 
 <script>
 import { ref, watch } from "vue";
-import { CountDown, Button, Loading, Tabs, Tab, Modal, request, Backdrop, Toast, Sticky, Refresher, InfiniteScroll, Swipe, SwipeItem } from "../lib";
+import {
+  CountDown,
+  Button,
+  Loading,
+  Tabs,
+  Tab,
+  Modal,
+  request,
+  Backdrop,
+  Toast,
+  Sticky,
+  Refresher,
+  InfiniteScroll,
+  Swipe,
+  SwipeItem,
+} from "../lib";
 
 request.beforeRequest = (config) => {
   console.log(config);
@@ -84,7 +106,7 @@ export default {
     Swipe,
     SwipeItem,
     InfiniteScroll,
-    InfiniteScroll
+    InfiniteScroll,
   },
   setup() {
     const active = ref(0);
@@ -94,7 +116,7 @@ export default {
     const toast = ref(false);
     const setLoading = () => {
       loading.value = true;
-      setTimeout(() => loading.value = false, 2000);
+      setTimeout(() => (loading.value = false), 2000);
     };
 
     watch(active, (newVal) => {
@@ -103,7 +125,7 @@ export default {
 
     const swiper = (swiper) => {
       // console.log(swiper);
-    }
+    };
 
     const qrcode = ref("https://api.wrdan.com/qr?data=akjshdkashd");
     const http = async () => {
@@ -113,8 +135,8 @@ export default {
         params: {
           data: "lkashdahgd",
           size: 9,
-          border: 5
-        }
+          border: 5,
+        },
       });
       console.log(data);
     };
@@ -122,13 +144,13 @@ export default {
       Toast("您好");
     };
     const progress = ref(0);
-    setInterval(() => progress.value = progress.value + 0.05, 1000)
+    setInterval(() => (progress.value = progress.value + 0.05), 1000);
     const onDone = ({ done }) => {
-      setTimeout(done, 3000)
-    }
+      setTimeout(done, 3000);
+    };
     const pulling = (e) => {
       // console.log(e);
-    }
+    };
 
     const data = ref([]);
     const loadmore = () => {
@@ -137,7 +159,6 @@ export default {
           data.value.push(`item${i}`);
         }
       }, 2000);
-
     };
 
     return {
@@ -155,9 +176,9 @@ export default {
       active,
       onDone,
       swiper,
-      setLoading
+      setLoading,
     };
-  }
+  },
 };
 </script>
 <style lang="scss">

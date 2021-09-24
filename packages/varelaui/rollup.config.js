@@ -77,8 +77,9 @@ export default {
       abortOnError: false,
     }),
     alias({
+      resolve: [".js", ".jsx", ".ts", ".tsx"],
       entries: {
-        "@": "../src",
+        "@": path.resolve(__dirname, "./src"),
       },
     }),
     vuePlugin(),
