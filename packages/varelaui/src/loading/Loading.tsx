@@ -16,11 +16,12 @@ export default defineComponent({
       default: 44,
     },
   },
-  setup(props) {
+  setup(props, { attrs }) {
     const instance = getCurrentInstance();
 
     const spinLoading = () => (
       <div
+        v-bind={attrs}
         class="loading-spinner"
         style={{ width: `${props.size}px`, height: `${props.size}px` }}
       >
@@ -38,6 +39,7 @@ export default defineComponent({
     );
     const mdLoading = () => (
       <div
+        v-bind={attrs}
         class="preloader"
         style={{ width: `${props.size}px`, height: `${props.size}px` }}
       >
